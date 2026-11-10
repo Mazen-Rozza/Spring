@@ -1,11 +1,11 @@
-package com.example.jpatest
+package com.example.spring
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class JpaTestApplication
+class SpringApplication
 
 fun main(args: Array<String>) {
-    runApplication<JpaTestApplication>(*args)
+    runApplication<SpringApplication>(*args)
 }

@@ -20,17 +20,38 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
+    // Spring Web
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
+
+    // Spring Data JPA
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    // Spring Security
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
+    // JWT support (Spring Security OAuth2 Resource Server)
+    implementation("org.springframework.boot:spring-boot-starter-security-oauth2-resource-server")
+
+    // Request validation
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    // Kotlin & Jackson
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("tools.jackson.module:jackson-module-kotlin")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation(kotlin("stdlib"))
+
+    // PostgreSQL
     runtimeOnly("org.postgresql:postgresql")
+
+    // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-security-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation(kotlin("stdlib"))
 }
+
 
 kotlin {
     compilerOptions {
