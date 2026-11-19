@@ -22,4 +22,14 @@ class AuthController(
         val userId = authService.register(request)
         return mapOf("userId" to userId)
     }
+
+
+    @PostMapping("/login")
+    fun login(
+        @Valid @RequestBody request: LoginRequest
+    ): LoginResponse {
+        val token = authService.login(request)
+        return LoginResponse(token)
+    }
+
 }

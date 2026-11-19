@@ -17,6 +17,7 @@ class SecurityConfig {
         return BCryptPasswordEncoder()
     }
 
+
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
@@ -25,8 +26,16 @@ class SecurityConfig {
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
             .authorizeHttpRequests {
-                it.requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                it.requestMatchers(
+                    HttpMethod.POST,
+                    "/auth/register",
+                    "/auth/login"
+                ).permitAll()
+
                 it.anyRequest().authenticated()
+            }
+            .oauth2ResourceServer {
+                it.jwt { }
             }
 
         return http.build()
